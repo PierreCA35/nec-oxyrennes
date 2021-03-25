@@ -64,13 +64,13 @@ class Firebase{
       return user;
     }on FirebaseAuthException catch(e){
       if("user_not_found" == e.code){
-        ToastMessage("");
+        ToastMessage("Impossible de trouver votre compte");
       }
       if("wrong-password" == e.code){
-        ToastMessage("");
+        ToastMessage("Mot de passe incorrect");
       }
       if("invalid-email" == e.code){
-        ToastMessage("");
+        ToastMessage("Impossible de trouver votre compte");
       }
     }catch(e){
       return null;
