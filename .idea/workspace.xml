@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ef12e384-07ba-4a8c-998d-916b22bc5c78" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/flutter_code/LecteurAudio/app/src/main/res/layout/music.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/flutter_code/world_visit_flutter/lib/select_country.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/InputStreamOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/MyAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/Research.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/Validation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/Validation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/java/com/example/worldvisit/database/DatabaseHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/activity_research.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/activity_research.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/my_text_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/app/src/main/res/layout/my_text_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Campus_Contest/code/world_visit-master/build.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qFIJb6XVUm0mWTE8FGOvWR1jhd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IMIE\B3\Campus_Track\code\nec\new_explorer_challenge\android\app" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef12e384-07ba-4a8c-998d-916b22bc5c78" name="Default Changelist" comment="" />
+      <created>1616668839412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616668839412</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1616669433559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616669433559" />
+    <state width="1877" height="165" key="GridCell.Tab.0.bottom" timestamp="1616675477114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="165" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616675477114" />
+    <state width="1877" height="165" key="GridCell.Tab.0.center" timestamp="1616675477114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="165" key="GridCell.Tab.0.center/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616675477114" />
+    <state width="1877" height="165" key="GridCell.Tab.0.left" timestamp="1616675477114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="165" key="GridCell.Tab.0.left/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616675477114" />
+    <state width="1877" height="165" key="GridCell.Tab.0.right" timestamp="1616675477114">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="165" key="GridCell.Tab.0.right/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616675477114" />
+    <state x="0" y="0" width="1532" height="616" key="dock-window-1" timestamp="1616673988247">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="0" width="1532" height="616" key="dock-window-1/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616673988247" />
+    <state width="706" height="127" key="javadoc.popup.new" timestamp="1616673451065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="706" height="127" key="javadoc.popup.new/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616673451065" />
+    <state width="706" height="127" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1616671156739" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1616674595579">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616674595579" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616669881372" />
+  </component>
+</project>

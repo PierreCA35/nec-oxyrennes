@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158950631825",
+    "project_id": "new-explorer-challenge",
+    "storage_bucket": "new-explorer-challenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158950631825:android:adea480e23bbc250275230",
+        "android_client_info": {
+          "package_name": "nec.com.new_explorer_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158950631825-r1n057tf78mk4lmnqrfa181lsi8blvnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRR8V_ApgF7pmo_v8PrEbMoR1-_A4POJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158950631825-r1n057tf78mk4lmnqrfa181lsi8blvnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
