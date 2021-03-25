@@ -24,6 +24,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +51,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test_flutter/foody_test/foodybite-master" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -66,34 +73,35 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1616669433559">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1616682052865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616682052865" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616669433559" />
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1616678184998">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1616683139959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616678184998" />
-    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1616678184998">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616683139959" />
+    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1616683139958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616678184998" />
-    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1616678184998">
+    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616683139958" />
+    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1616683139958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616678184998" />
-    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1616678184998">
+    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616683139958" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1616683139958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616678184998" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616683139958" />
     <state x="0" y="0" width="1532" height="616" key="dock-window-1" timestamp="1616673988247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="1532" height="616" key="dock-window-1/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616673988247" />
-    <state width="706" height="127" key="javadoc.popup.new" timestamp="1616673451065">
+    <state width="706" height="241" key="javadoc.popup.new" timestamp="1616682623771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="706" height="127" key="javadoc.popup.new/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616673451065" />
+    <state width="706" height="241" key="javadoc.popup.new/0.0.1920.1040/0.-1080.1920.1040@0.0.1920.1040" timestamp="1616682623771" />
     <state width="706" height="127" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1616671156739" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1616674595579">
       <screen x="0" y="0" width="1920" height="1040" />
