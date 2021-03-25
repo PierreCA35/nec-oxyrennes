@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,6 @@ class _MainAppControllerState extends State<MainAppController> {
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
-  StreamSubscription streamListener;
   int page = 0;
 
   @override
@@ -34,8 +32,9 @@ class _MainAppControllerState extends State<MainAppController> {
     return Scaffold(
       key: _globalKey,
       backgroundColor: Colors.white,
-      body: CurvedNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.blue,
+        height: 45.0,
         items: [
           Icon(Icons.home, size: 25.0,),
           Icon(Icons.search, size: 25.0,),
@@ -47,8 +46,11 @@ class _MainAppControllerState extends State<MainAppController> {
           });
         },
       ),
+      body: showPage(),
     );
   }
+
+
 
   Widget showPage(){
     switch(page){
