@@ -56,6 +56,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "crypto",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "cupertino_icons",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2",
       "packageUri": "lib/",
@@ -70,6 +76,18 @@
     {
       "name": "fake_async",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "ffi",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "file",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -158,6 +176,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "google_fonts",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1",
       "packageUri": "lib/",
@@ -218,14 +242,56 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "path_provider",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_linux",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_macos",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_platform_interface-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_windows",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "pedantic",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
+      "name": "platform",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "plugin_platform_interface",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "process",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -284,13 +350,25 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "win32",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "xdg_directories",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "new_explorer_challenge",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-03-26T09:02:53.336269Z",
+  "generated": "2021-03-26T09:05:08.300511Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }
