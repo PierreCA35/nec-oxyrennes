@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/library/widgets/toast.dart';
 import 'package:new_explorer_challenge/library/widgets/constants.dart';
 
@@ -85,7 +86,7 @@ class Firebase{
   logOut() => authinstance.signOut();
 
   //Mot de passe oublié
-  Future<void> changePassword(String mail) async{
+  Future<void> changePassword(String mail, BuildContext context) async{
     try{
       await authinstance.sendPasswordResetEmail(email: mail);
     }on FirebaseAuthException catch(e){

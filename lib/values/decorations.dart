@@ -2,13 +2,13 @@ part of 'values.dart';
 
 class Decorations {
 
-  static const BoxDecoration primaryButtonDecoration = BoxDecoration(
+  /*static const BoxDecoration primaryButtonDecoration = BoxDecoration(
     color: AppColors.secondaryElement,
     boxShadow: [
       Shadows.secondaryShadow,
     ],
     borderRadius: BorderRadius.all(Radius.circular(Sizes.RADIUS_8)),
-  );
+  );*/
 
   static const BoxDecoration categoryButtonDecoration = BoxDecoration(
       gradient: Gradients.secondaryGradient2,
@@ -20,15 +20,15 @@ class Decorations {
     )
   );
 
-  static const BoxDecoration halfButtonDecoration = BoxDecoration(
+  /*static const BoxDecoration halfButtonDecoration = BoxDecoration(
     color: AppColors.secondaryElement,
     boxShadow: [
       Shadows.secondaryShadow,
     ],
     borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0)),
-  );
+  );*/
 
-  static BoxDecoration customDecoration({
+  /*static BoxDecoration customDecoration({
     Color color = AppColors.secondaryElement,
     List<BoxShadow> boxShadow = const [Shadows.secondaryShadow],
     double borderRadius = Sizes.RADIUS_12,
@@ -38,9 +38,9 @@ class Decorations {
       boxShadow: boxShadow,
       borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
     );
-  }
+  }*/
 
-  static BoxDecoration customHalfCurvedButtonDecoration({
+  /*static BoxDecoration customHalfCurvedButtonDecoration({
     Color color = AppColors.secondaryElement,
     List<BoxShadow> boxShadow = const [Shadows.secondaryShadow],
     double topleftRadius = 0,
@@ -62,7 +62,7 @@ class Decorations {
 ////        bottom: BorderSide(width: 16.0, color: AppColors.primaryColor),
 //      ),
     );
-  }
+  }*/
 
   static const BoxDecoration regularDecoration = BoxDecoration(
     color: Color.fromARGB(255, 255, 255, 255),

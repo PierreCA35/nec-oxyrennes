@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:new_explorer_challenge/library/widgets/text.dart';
 
 import 'controller/main_app_controller.dart';
 
