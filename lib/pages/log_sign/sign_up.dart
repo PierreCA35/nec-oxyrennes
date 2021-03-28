@@ -9,6 +9,7 @@ class SignUp{
 
   SignUp(
       this.context,
+      this._pageController,
       this._pseudo,
       this._email,
       this._pwd,
@@ -22,6 +23,7 @@ class SignUp{
   TextEditingController _pwd;
   bool _obscureText;
   VoidCallback _togglePwd;
+  PageController _pageController;
 
   Widget bodyInscription(double width){
     return Stack(
@@ -221,7 +223,7 @@ class SignUp{
               fontSize: 14.0,
               fontWeight: FontWeight.bold,
             ),
-            onTap: () => null,
+            onTap: () => _pageController.previousPage(duration: Duration(seconds: 3), curve: Curves.fastOutSlowIn),
           ),
         )
       ],

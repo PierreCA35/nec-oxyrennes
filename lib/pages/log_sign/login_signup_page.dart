@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/pages/log_sign/login.dart';
+import 'package:new_explorer_challenge/pages/log_sign/sign_up.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
 class LoginSignUpPage extends StatefulWidget {
@@ -11,17 +15,16 @@ class LoginSignUpPage extends StatefulWidget {
 
 class _LoginSignUpState extends State<LoginSignUpPage> {
 
-  PageController _pageController;
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
   TextEditingController _email;
   TextEditingController _pwd;
   TextEditingController _pseudo;
-
   bool _obscureText = true;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
     _email = TextEditingController();
     _pwd = TextEditingController();
     _pseudo = TextEditingController();
@@ -60,9 +63,48 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
             child: topMenu(),
             preferredSize: Size(screenSize.width, 1000)
         ),
-        body: Container(
-          color: AppColors.beigeColor,
-          child: Container(),
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.light,
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.beigeColor,
+            ),
+            child: ListView(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height / 1.20,
+                  child: PageView(
+                    physics: ClampingScrollPhysics(),
+                    controller: _pageController,
+                    onPageChanged: (int page){
+                      setState(() {
+                        _currentPage = page;
+                      });
+                    },
+                    children: [
+                      Login(
+                        context,
+                        _pageController,
+                        _email,
+                        _pwd,
+                        _obscureText,
+                        _togglePwd
+                      ).bodyConnexion(widthOfScreen),
+                      SignUp(
+                        context,
+                        _pageController,
+                        _pseudo,
+                        _email,
+                        _pwd,
+                        _obscureText,
+                        _togglePwd
+                      ).bodyInscription(widthOfScreen),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

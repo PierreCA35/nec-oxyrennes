@@ -9,12 +9,13 @@ import 'package:new_explorer_challenge/values/values.dart';
 class Login{
 
   BuildContext context;
+  PageController _pageController;
   TextEditingController _email;
   TextEditingController _pwd;
   bool _obscureText;
   VoidCallback _togglePwd;
 
-  Login(this.context, this._email, this._pwd, this._obscureText);
+  Login(this.context, this._pageController, this._email, this._pwd, this._obscureText, this._togglePwd);
 
   Widget bodyConnexion(double width){
     return Stack(
@@ -194,7 +195,7 @@ class Login{
             EdgeInsets.all(20.0)
         ),
       ),
-      onPressed: null,
+      onPressed: connexion(),
     );
   }
 
@@ -214,7 +215,9 @@ class Login{
               fontSize: 14.0,
               fontWeight: FontWeight.bold,
             ),
-            onTap: null,
+            onTap: (){
+              _pageController.nextPage(duration: Duration(seconds: 3), curve: Curves.fastOutSlowIn);
+            },
           ),
         )
       ],
