@@ -3,28 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/firebase/firestore.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
-import 'package:new_explorer_challenge/values/values.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/values/values.dart';
 
 class Login{
 
-  Login(
-    this.context,
-    this._curvedAnimation,
-    this._email,
-    this._pwd,
-    this._obscureText,
-    this._togglePwd,
-    this.performTransition
-  );
-
   BuildContext context;
-  CurvedAnimation _curvedAnimation;
   TextEditingController _email;
   TextEditingController _pwd;
   bool _obscureText;
   VoidCallback _togglePwd;
-  VoidCallback performTransition;
+
+  Login(this.context, this._email, this._pwd, this._obscureText);
 
   Widget bodyConnexion(double width){
     return Stack(
@@ -60,7 +50,7 @@ class Login{
         margin: EdgeInsets.only(top: 215),
         child: TextTitreBouton(
           "Connexion",
-          fontSize: 35,
+          fontSize: 40,
           fontWeight: FontWeight.w500,
           color: AppColors.blackLightColor,
         ),
@@ -189,6 +179,25 @@ class Login{
     );
   }
 
+  Widget boutonConnexion(){
+    return ElevatedButton(
+      child: TextTitreBouton(
+        "Connexion",
+        fontSize: 15,
+        color: AppColors.greyLightColor,
+      ),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(
+            AppColors.blackLightColor
+        ),
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            EdgeInsets.all(20.0)
+        ),
+      ),
+      onPressed: null,
+    );
+  }
+
   Widget textInscription(MainAxisAlignment mainAxisAlignment){
     return Row(
       mainAxisAlignment: mainAxisAlignment,
@@ -205,29 +214,10 @@ class Login{
               fontSize: 14.0,
               fontWeight: FontWeight.bold,
             ),
-            onTap: () => performTransition(),
+            onTap: null,
           ),
         )
       ],
-    );
-  }
-
-  Widget boutonConnexion(){
-    return ElevatedButton(
-      child: TextTitreBouton(
-        "Connexion",
-        fontSize: 15,
-        color: AppColors.greyLightColor,
-      ),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(
-            AppColors.blackLightColor
-        ),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-            EdgeInsets.all(20.0)
-        ),
-      ),
-      onPressed: () => connexion(),
     );
   }
 

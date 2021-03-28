@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/firebase/firestore.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
@@ -9,24 +8,20 @@ import 'package:new_explorer_challenge/model/responsive.dart';
 class SignUp{
 
   SignUp(
-    this.context,
-    this._curvedAnimation,
-    this._pseudo,
-    this._email,
-    this._pwd,
-    this._obscureText,
-    this._togglePwd,
-    this.performTransition,
-  );
+      this.context,
+      this._pseudo,
+      this._email,
+      this._pwd,
+      this._obscureText,
+      this._togglePwd,
+      );
 
   BuildContext context;
-  CurvedAnimation _curvedAnimation;
   TextEditingController _pseudo;
   TextEditingController _email;
   TextEditingController _pwd;
   bool _obscureText;
   VoidCallback _togglePwd;
-  VoidCallback performTransition;
 
   Widget bodyInscription(double width){
     return Stack(
@@ -226,7 +221,7 @@ class SignUp{
               fontSize: 14.0,
               fontWeight: FontWeight.bold,
             ),
-            onTap: () => performTransition,
+            onTap: () => null,
           ),
         )
       ],

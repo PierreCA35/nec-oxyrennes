@@ -2,9 +2,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
-import 'package:new_explorer_challenge/pages/home.dart';
 import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
-import 'package:new_explorer_challenge/pages/profile.dart';
 import 'package:new_explorer_challenge/pages/search.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
