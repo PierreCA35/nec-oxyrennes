@@ -1,9 +1,10 @@
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:new_explorer_challenge/pages/home.dart';
-import 'package:new_explorer_challenge/pages/profile.dart';
+import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
 import 'package:new_explorer_challenge/pages/search.dart';
+import 'package:new_explorer_challenge/values/values.dart';
 
 class MainAppController extends StatefulWidget {
 
@@ -32,8 +33,10 @@ class _MainAppControllerState extends State<MainAppController> {
     return Scaffold(
       key: _globalKey,
       backgroundColor: Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.blue,
+      bottomNavigationBar: ResponsiveWidget.isSmallScreen(context)
+        ? CurvedNavigationBar(
+        backgroundColor: AppColors.greyLightColor,
+        color: AppColors.beigeColor,
         height: 45.0,
         items: [
           Icon(Icons.home, size: 25.0,),
@@ -45,7 +48,8 @@ class _MainAppControllerState extends State<MainAppController> {
             page = index;
           });
         },
-      ),
+      )
+      : null,
       body: showPage(),
     );
   }
@@ -55,11 +59,11 @@ class _MainAppControllerState extends State<MainAppController> {
   Widget showPage(){
     switch(page){
       case 0:
-        return HomePage();
+        return LoginSignUpPage();
       case 1:
         return SearchPage();
       default:
-        return ProfilPage();
+        return LoginSignUpPage();
     }
   }
 }

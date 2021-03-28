@@ -1,7 +1,7 @@
 part of values;
 
 class Styles {
-  static const TextStyle titleTextStyleWithSecondaryTextColor = TextStyle(
+  /*static const TextStyle titleTextStyleWithSecondaryTextColor = TextStyle(
     color: AppColors.secondaryText,
     fontFamily: StringConst.FONT_FAMILY,
     fontWeight: FontWeight.w700,
@@ -22,9 +22,9 @@ class Styles {
       fontSize: fontSize,
       letterSpacing: letterSpacing,
     );
-  }
+  }*/
 
-  static const TextStyle normalTextStyle = TextStyle(
+  /*static const TextStyle normalTextStyle = TextStyle(
     color: AppColors.secondaryText,
     fontFamily: StringConst.FONT_FAMILY,
     fontWeight: FontWeight.w400,
@@ -84,5 +84,5 @@ class Styles {
       fontStyle: fontStyle,
       letterSpacing: letterSpacing,
     );
-  }
+  }*/
 }
