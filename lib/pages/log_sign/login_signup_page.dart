@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
 import 'package:new_explorer_challenge/pages/log_sign/login.dart';

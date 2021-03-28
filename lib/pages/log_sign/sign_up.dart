@@ -238,7 +238,6 @@ class SignUp{
     if(pseudo == ""){
       return;
     }
-
     if(mail == ""){
       return;
     }

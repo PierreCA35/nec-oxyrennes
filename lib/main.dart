@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:new_explorer_challenge/values/values.dart';
 
 import 'controller/main_app_controller.dart';
 
@@ -17,7 +19,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'New Explorer Challenge',
-      home: MainAppController(),
+      home: authStatus(),
+    );
+  }
+
+  Widget authStatus(){
+    return StreamBuilder<User>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot){
+        return (!snapshot.hasData)
+          ? Scaffold(body: MainAppController(""))
+          : Scaffold(body: MainAppController(snapshot.data.uid));
+      },
     );
   }
 }
