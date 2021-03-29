@@ -195,7 +195,7 @@ class Login{
             EdgeInsets.all(20.0)
         ),
       ),
-      onPressed: checkConnexion,
+      onPressed: () => checkConnexion(),
     );
   }
 

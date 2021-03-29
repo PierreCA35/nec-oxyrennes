@@ -203,7 +203,7 @@ class SignUp{
             EdgeInsets.all(20.0)
         ),
       ),
-      onPressed: () => inscription(),
+      onPressed: () => checkInscription(),
     );
   }
 
@@ -230,29 +230,62 @@ class SignUp{
     );
   }
 
-  inscription(){
+  void checkInscription(){
     String mail = _email.text.trim();
     String pwd = _pwd.text.trim();
     String pseudo = _pseudo.text.trim();
 
-    if(pseudo == ""){
-      return;
+    if(pseudo != ""){
+      if(mail != ""){
+        if(pwd != ""){
+          isInscrit(context);
+        }
+      }
     }
-    if(mail == ""){
-      return;
-    }
-    if(pwd == ""){
-      return;
-    }
-
-    return checkInscription();
   }
 
-  void checkInscription(){
-    isInscrit(context);
-  }
-
-  void isInscrit(BuildContext context){
-    Firebase().createAccount(_email.text.trim().toLowerCase(), _pwd.text.trim().toLowerCase(), _pseudo.text.trim());
+  Future<void> isInscrit(BuildContext context){
+    TextTitreBouton title = TextTitreBouton(
+      "Conditons Générales d'Utilisation",
+      textAlign: TextAlign.center,
+      color: AppColors.blackLightColor,
+      fontSize: 20.0,
+    );
+    return showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (ctx){
+          return AlertDialog(
+            titlePadding: EdgeInsets.only(top: 10.0, right: 0.0, left: 0.0, bottom: 8.0),
+            title: title,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+            actions: [
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 25.0),
+                    child: TextParagraphe("CGU", color: AppColors.blackLightColor,),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 0.0),
+                    child: TextButton(
+                      child: TextTitreBouton(
+                        "Accepter",
+                        textAlign: TextAlign.center,
+                        color: AppColors.blackLightColor,
+                      ),
+                      onPressed: (){
+                        Firebase().createAccount(_email.text.trim().toLowerCase(), _pwd.text.trim().toLowerCase(), _pseudo.text.trim());
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        }
+    );
   }
 }

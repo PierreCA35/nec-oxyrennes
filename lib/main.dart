@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:new_explorer_challenge/controller/main_app_controller_online.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
 import 'controller/main_app_controller.dart';
@@ -27,9 +28,10 @@ class MyApp extends StatelessWidget {
     return StreamBuilder<User>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot){
+        print(snapshot.data);
         return (!snapshot.hasData)
-          ? Scaffold(body: MainAppController(""))
-          : Scaffold(body: MainAppController(snapshot.data.uid));
+          ? MainAppController()
+          : MainAppControllerOnline(snapshot.data.uid);
       },
     );
   }
