@@ -12,6 +12,7 @@ import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/carnet_de_bord.dart';
 import 'package:new_explorer_challenge/model/user.dart';
+import 'package:new_explorer_challenge/pages/parametre_profile.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
 
@@ -53,6 +54,7 @@ class _ProfilPageState extends State<ProfilPage> {
     controller.dispose();
     _pseudo.dispose();
     subscription.cancel();
+
     super.dispose();
   }
 
@@ -61,6 +63,11 @@ class _ProfilPageState extends State<ProfilPage> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: AppColors.blackLightColor,
+        title: Container(
+          height: 100,
+          width: 100,
+          child: Image.asset("assets/logo_NEC_.png")
+        ),
         actions: [
           Container(
               margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
@@ -70,7 +77,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 child: Icon(Icons.ac_unit, color: AppColors.blackLightColor,),
                 backgroundColor: AppColors.beigeColor,
                 onPressed: (){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
                 },
               )
           ),
@@ -131,73 +138,12 @@ class _ProfilPageState extends State<ProfilPage> {
   }
 
   Widget streamBuilder(){
-   /*return ListView.builder(
-      itemCount: length,
-      itemBuilder: (context, index){
-        print(titre);
-        //CarnetDeBord carnet = new CarnetDeBord(snapshot.data.documents[index]);
-        return new Card(
-          elevation: 6.0,
-          shape: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
-            borderSide: BorderSide(color: AppColors.greyLightColor),
-          ),
-          margin: EdgeInsets.symmetric(horizontal: 10.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-              color: AppColors.greyLightColor,
-            ),
-            width: MediaQuery.of(context).size.width,
-            child: SafeArea(
-              child: Column(
-                children: [
-                  TextTitreBouton(
-                    "$titre",
-                    color: AppColors.blackLightColor,
-                  )
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-   */
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection('carnet').doc(me.uid).collection(me.uid).orderBy("date", descending: true).snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot>snapshot){
         if(snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: Text(""),);
+          return Center(child: null,);
         }else{
-          /*return new ListView(
-            children: snapshot.data.docs.map((DocumentSnapshot doc){
-              return new Card(
-                elevation: 6.0,
-                shape: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  borderSide: BorderSide(color: AppColors.greyLightColor),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.0),
-                    color: AppColors.greyLightColor,
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                  child: SafeArea(
-                    child: Column(
-                      children: [
-                        TextTitreBouton(
-                          doc.data()["titre"],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            }).toList(),
-          );*/
           return ListView.builder(
             itemCount: snapshot.data.size,
             itemBuilder: (context, index){
@@ -284,12 +230,4 @@ class _ProfilPageState extends State<ProfilPage> {
       },
     );
   }
-
-  /*Future getCarnetDeBord() async{
-    var firestore = FirebaseFirestore.instance;
-
-    QuerySnapshot listCarnetDeBord = await firestore.collection('carnetDeBord').doc(me.uid).collection(me.uid).get();
-
-    return listCarnetDeBord.docs;
-  }*/
 }

@@ -55,7 +55,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
               child: Icon(Icons.clear, color: AppColors.blackLightColor,),
               backgroundColor: AppColors.beigeColor,
               onPressed: (){
-
+                Navigator.pop(context);
               },
             )
           ),
