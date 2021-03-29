@@ -78,6 +78,6 @@ class TakePhotoProfil{
 
   Future takePicture(ImageSource source) async{
     File file = File(await ImagePicker().getImage(source: source, imageQuality: 20, preferredCameraDevice: CameraDevice.front).then((value) => value.path));
-    Firebase().modifyImageProfil(file);
+    FirebaseClass().modifyImageProfil(file);
   }
 }

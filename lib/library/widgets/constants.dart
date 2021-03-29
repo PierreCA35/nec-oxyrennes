@@ -3,8 +3,6 @@ import 'package:new_explorer_challenge/model/user.dart';
 
 UserClass me;
 
-String userId = "";
-
 String keyUid = "uid";
 String keyEmail = "email";
 String keyPseudo = "pseudo";

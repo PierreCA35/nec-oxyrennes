@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:new_explorer_challenge/library/widgets/toast.dart';
 import 'package:new_explorer_challenge/library/widgets/constants.dart';
 
-class Firebase{
+class FirebaseClass{
 
   final authinstance = FirebaseAuth.instance;
   static final firestoreInstance = FirebaseFirestore.instance;

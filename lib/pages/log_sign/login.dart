@@ -266,7 +266,7 @@ class Login{
                       color: AppColors.blackLightColor,
                     ),
                     onPressed: (){
-                      Firebase().connectAccount(_email.text.trim(), _pwd.text.trim());
+                      FirebaseClass().connectAccount(_email.text.trim(), _pwd.text.trim());
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },
@@ -325,7 +325,7 @@ class Login{
                 ),
               ),
               TextButton(
-                onPressed: () => Navigator.of(ctx).pop(Firebase().changePassword(_email.text.trim().toLowerCase(), context)),
+                onPressed: () => Navigator.of(ctx).pop(FirebaseClass().changePassword(_email.text.trim().toLowerCase(), context)),
                 child: new TextTitreBouton("OK"),
               )
             ],

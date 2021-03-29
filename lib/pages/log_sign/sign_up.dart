@@ -275,7 +275,7 @@ class SignUp{
                         color: AppColors.blackLightColor,
                       ),
                       onPressed: (){
-                        Firebase().createAccount(_email.text.trim().toLowerCase(), _pwd.text.trim().toLowerCase(), _pseudo.text.trim());
+                        FirebaseClass().createAccount(_email.text.trim().toLowerCase(), _pwd.text.trim().toLowerCase(), _pseudo.text.trim());
                         Navigator.pop(context);
                         Navigator.pop(context);
                       },

@@ -31,7 +31,7 @@ class _MainAppControllerOnlineState extends State<MainAppControllerOnline> {
   @override
   void initState() {
     super.initState();
-    streamSubscription = Firebase()
+    streamSubscription = FirebaseClass()
       .fireUser
       .doc(widget.uid)
       .snapshots()

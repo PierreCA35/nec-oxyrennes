@@ -11,9 +11,13 @@ class TextParagraphe extends Text{
     color: Colors.black,
     String fontFamily,
     FontWeight fontWeight,
+    int maxLines,
+    TextOverflow textOverflow
   }):super(
     data,
     textAlign: textAlign,
+    maxLines: maxLines,
+    overflow: textOverflow,
     style: GoogleFonts.roboto(
       fontSize: fontSize,
       fontStyle: fontStyle,
