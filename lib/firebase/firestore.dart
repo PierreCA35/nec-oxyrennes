@@ -31,10 +31,6 @@ class FirebaseClass{
         keyTag2: "",
         keyTag3: "",
         keyTag4: "",
-        keyTag5: "",
-        keyTag6: "",
-        keyTag7: "",
-        keyTag8: "",
       };
       addUserFirebase(uid, map, email, pseudo);
       return user;
@@ -104,6 +100,7 @@ class FirebaseClass{
 
   static final storageInstance = FirebaseStorage.instance.ref();
   final storageUser = storageInstance.child("ImageProfil");
+  final storageHome = storageInstance.child("images").child("storie_home");
 
   //Stockage de l'image de profil dans Firebase Storage
   Future<String> addImageProfil (File file, Reference ref) async{
@@ -121,6 +118,24 @@ class FirebaseClass{
         keyPhotoProfil: value,
       };
       modifyFirebaseUser(data);
+    });
+  }
+  
+  addPhotoStorageHome(File file, Reference ref) async{
+    UploadTask task = ref.putFile(file);
+    await task.whenComplete((){
+      return;
+    });
+    return ref.getDownloadURL();
+  }
+
+  modifiyPhotoHome(File file){
+    Reference ref = storageHome.child(DateTime.now().millisecondsSinceEpoch.toString());
+    addPhotoStorageHome(file, ref).then((value){
+      Map<String, dynamic> data = {
+        "description": value,
+      };
+      photoHome = value;
     });
   }
 }

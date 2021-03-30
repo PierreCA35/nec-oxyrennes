@@ -46,6 +46,11 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: AppColors.blackLightColor,
+        title: Container(
+            height: 100,
+            width: 100,
+            child: Image.asset("assets/logo_NEC_.png")
+        ),
         actions: [
           Container(
             margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),

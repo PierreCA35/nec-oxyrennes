@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:new_explorer_challenge/library/widgets/constants.dart';
+import 'package:new_explorer_challenge/pages/ajouter_contenu.dart';
+import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
 /*List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
@@ -26,15 +29,27 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text('NEC Logo'),
+          title: Container(
+              height: 100,
+              width: 100,
+              child: Image.asset("assets/logo_NEC_.png")
+          ),
           backgroundColor: AppColors.blackLightColor,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
-          height: 30,
-          width: 30,
+          height: 40,
+          width: 40,
           child: FloatingActionButton(
-            child: Icon(Icons.add_rounded, color: AppColors.blackLightColor,),
-            onPressed: null,
+            backgroundColor: AppColors.blackLightColor,
+            child: Icon(Icons.add_rounded, color: AppColors.beigeColor, size: 40,),
+            onPressed: (){
+              if (me == null){
+                return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
+              }else{
+                return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
+              }
+            },
           ),
         ),
         body: StaggeredGridView.countBuilder(

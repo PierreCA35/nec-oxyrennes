@@ -65,5 +65,3 @@ class _MainAppControllerState extends State<MainAppController> {
     }
   }
 }
-
-
