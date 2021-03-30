@@ -100,6 +100,13 @@
             </list>
           </value>
         </entry>
+        <entry key="expansion_card">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/expansion_card-0.1.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="fake_async">
           <value>
             <list>
@@ -572,6 +579,7 @@
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/curved_navigation_bar-0.3.7/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/expansion_card-0.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../../../NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0/lib" />

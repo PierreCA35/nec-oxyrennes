@@ -86,6 +86,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "expansion_card",
+      "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/expansion_card-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///E:/NexToYou/Google/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -482,7 +488,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-03-30T12:35:32.580310Z",
+  "generated": "2021-03-30T15:04:25.870406Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

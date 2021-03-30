@@ -325,16 +325,18 @@ class _AjouterContenuState extends State<AjouterContenu> {
                           fontWeight: FontWeight.bold,
                         ),
                         onPressed: () async{
+                          String id = DateTime.now().millisecondsSinceEpoch.toString();
                          if(photo == null && imageWeb != null && titre.text != ""){
-                            FirebaseFirestore.instance.collection("carnet").doc(me.uid).collection(me.uid).doc(DateTime.now().millisecondsSinceEpoch.toString()).set({
+                            FirebaseFirestore.instance.collection("carnet").doc(me.uid).collection(me.uid).doc(id).set({
                               "titre": titre.text,
                               "description": description.text,
                               "photo": imageWeb.toString(),
                               "tag1": tag.text,
                               "localisation": localisation.text,
                               "date": dateSecond().toString(),
+                              "id": id,
                             });
-                            FirebaseFirestore.instance.collection("home").doc(DateTime.now().millisecondsSinceEpoch.toString()).set({
+                            FirebaseFirestore.instance.collection("home").doc(id).set({
                               "titre": titre.text,
                               "description": description.text,
                               "photo": imageWeb.toString(),
@@ -342,19 +344,19 @@ class _AjouterContenuState extends State<AjouterContenu> {
                               "localisation": localisation.text,
                               "date": dateSecond().toString(),
                               "auteur": me.pseudo,
+                              "id": id,
                             });
                           }else if(imageWeb == null && photo != null && titre.text != ""){
-                           FirebaseClass().modifiyPhotoHome(photo);
-                           print("photoHome : $photoHome");
-                           FirebaseFirestore.instance.collection("carnet").doc(me.uid).collection(me.uid).doc(DateTime.now().millisecondsSinceEpoch.toString()).set({
+                           FirebaseFirestore.instance.collection("carnet").doc(me.uid).collection(me.uid).doc(id).set({
                              "titre": titre.text,
                              "description": description.text,
                              "photo": photoHome,
                              "tag1": tag.text,
                              "localisation": localisation.text,
                              "date": dateSecond().toString(),
+                             "id": id,
                            });
-                           FirebaseFirestore.instance.collection("home").doc(DateTime.now().millisecondsSinceEpoch.toString()).set({
+                           FirebaseFirestore.instance.collection("home").doc(id).set({
                              "titre": titre.text,
                              "description": description.text,
                              "photo": photoHome,
@@ -362,6 +364,7 @@ class _AjouterContenuState extends State<AjouterContenu> {
                              "localisation": localisation.text,
                              "date": dateSecond().toString(),
                              "auteur": me.pseudo,
+                             "id": id,
                            });
                           }else{
                            return null;
@@ -382,6 +385,8 @@ class _AjouterContenuState extends State<AjouterContenu> {
 
   Future takePicture(ImageSource source) async{
     File file = File(await ImagePicker().getImage(source: source, imageQuality: 20, preferredCameraDevice: CameraDevice.front).then((value) => value.path));
+
+    FirebaseClass().modifiyPhotoHome(photo);
 
     setState(() {
       photo = file;
