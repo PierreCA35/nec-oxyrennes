@@ -2,6 +2,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/pages/home.dart';
 import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
 import 'package:new_explorer_challenge/pages/search.dart';
 import 'package:new_explorer_challenge/values/values.dart';
@@ -20,6 +21,7 @@ class _MainAppControllerState extends State<MainAppController> {
 
   @override
   void initState() {
+    showConcoursPopUp(context);
     super.initState();
   }
 
@@ -27,6 +29,31 @@ class _MainAppControllerState extends State<MainAppController> {
   void dispose() {
     super.dispose();
   }
+
+  Future showConcoursPopUp(BuildContext context) async {
+
+    await Future.delayed(Duration(seconds: 2));
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Concours!!!"),
+          content: new Text("Cliquez ci-dessous pour participer à notre concours communautaire"),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Je participe"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +86,7 @@ class _MainAppControllerState extends State<MainAppController> {
   Widget showPage(){
     switch(page){
       case 0:
-        return LoginSignUpPage();
+        return HomePage();
       case 1:
         return SearchPage();
       default:
