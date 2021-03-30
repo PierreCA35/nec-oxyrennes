@@ -132,9 +132,6 @@ class FirebaseClass{
   modifiyPhotoHome(File file){
     Reference ref = storageHome.child(DateTime.now().millisecondsSinceEpoch.toString());
     addPhotoStorageHome(file, ref).then((value){
-      Map<String, dynamic> data = {
-        "description": value,
-      };
       photoHome = value;
     });
   }

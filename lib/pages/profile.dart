@@ -7,7 +7,6 @@ import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_detai
 import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_widgets.dart';
 import 'package:new_explorer_challenge/library/widgets/constants.dart';
 import 'package:new_explorer_challenge/library/widgets/photo_profile.dart';
-import 'package:new_explorer_challenge/library/widgets/take_photo_profil.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/carnet_de_bord.dart';
@@ -50,15 +49,6 @@ class _ProfilPageState extends State<ProfilPage> {
   }
 
   @override
-  void dispose() {
-    controller.dispose();
-    _pseudo.dispose();
-    subscription.cancel();
-
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
@@ -74,7 +64,7 @@ class _ProfilPageState extends State<ProfilPage> {
               width: 30,
               height: 30,
               child: FloatingActionButton(
-                child: Icon(Icons.ac_unit, color: AppColors.blackLightColor,),
+                child: Icon(Icons.build_rounded, color: AppColors.blackLightColor,),
                 backgroundColor: AppColors.beigeColor,
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
@@ -106,12 +96,7 @@ class _ProfilPageState extends State<ProfilPage> {
                           child: ProfilPhoto(
                             urlImage: widget.user.photoProfil,
                             size: 40.0,
-                            onPressed: (){
-                              TakePhotoProfil(context, widget.user).changePictureUser();
-                            },
-                            child: (widget.user.photoProfil == "")
-                                ? Icon(Icons.add_a_photo_rounded, color: AppColors.blackLightColor, size: 25.0,)
-                                : null,
+                            onPressed: null,
                           ),
                         ),
                       ),
@@ -229,5 +214,13 @@ class _ProfilPageState extends State<ProfilPage> {
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    _pseudo.dispose();
+    subscription.cancel();
+    super.dispose();
   }
 }

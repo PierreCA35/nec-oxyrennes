@@ -30,6 +30,7 @@ class _MainAppControllerState extends State<MainAppController> {
         backgroundColor: Colors.white,
         bottomNavigationBar: ResponsiveWidget.isSmallScreen(context)
             ? CurvedNavigationBar(
+          index: page,
           backgroundColor: AppColors.greyLightColor,
           color: AppColors.beigeColor,
           height: 45.0,

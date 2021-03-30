@@ -60,10 +60,11 @@ class _AjouterContenuState extends State<AjouterContenu> {
       appBar: new AppBar(
         backgroundColor: AppColors.blackLightColor,
         title: Container(
-            height: 100,
-            width: 100,
-            child: Image.asset("assets/logo_NEC_.png")
+          height: 100,
+          width: 100,
+          child: Image.asset("assets/logo_NEC_.png")
         ),
+        automaticallyImplyLeading: false,
         actions: [
           Container(
             margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,109 @@ import 'package:new_explorer_challenge/values/values.dart';
  const String random3 = 'https://picsum.photos/207/300/?random';
  const String random4 = 'https://picsum.photos/207/300/?random';*/
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  bool get mounted => super.mounted;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () async{
+      return await popUpConcours();
+    });
+  }
+
+  Future<void> popUpConcours() async{
+    return await showDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierColor: Color.fromRGBO(245, 245, 249, 0.2),
+      builder: (context){
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          title: Container(
+            height: 300,
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: Icon(Icons.cancel),
+                    iconSize: 30,
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20.0),
+                  child: Image.asset(
+                    "assets/calendar_star.png",
+                  ),
+                ),
+                TextTitreBouton(
+                  "Découvrez nos évènements",
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                Container(
+                  height: 50,
+                  width: 220,
+                  margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: ElevatedButton(
+                    child: TextTitreBouton(
+                      "Challenge Réflexion",
+                      color: AppColors.greyLightColor,
+                    ),
+                    onPressed: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: 220,
+                  child: ElevatedButton(
+                    child: TextTitreBouton(
+                      "Défi Sportif",
+                      color: AppColors.greyLightColor,
+                    ),
+                    onPressed: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +171,6 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index){
               Home homeBorde = new Home(snapshot.data.docs[index]);
               HeroWidget hero = HeroWidget(homeBorde.photo);
-              print(homeBorde.description.length);
               return _ImageTile(homeBorde.photo, homeBorde, hero, homeBorde.titre, homeBorde.description);
             },
             staggeredTileBuilder: (index){

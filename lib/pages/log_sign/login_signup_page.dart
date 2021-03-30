@@ -15,7 +15,7 @@ class LoginSignUpPage extends StatefulWidget {
 class _LoginSignUpState extends State<LoginSignUpPage> {
 
   final PageController _pageController = PageController(initialPage: 0);
-  int _currentPage = 0;
+  int currentPage = 0;
   TextEditingController _email;
   TextEditingController _pwd;
   TextEditingController _pseudo;
@@ -77,7 +77,7 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
                     controller: _pageController,
                     onPageChanged: (int page){
                       setState(() {
-                        _currentPage = page;
+                        currentPage = page;
                       });
                     },
                     children: [
