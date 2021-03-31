@@ -256,24 +256,5 @@ class _ImageTile extends StatelessWidget{
         ],
       ),
     );
-    /*return new Card(
-      color: const Color(0x00000000),
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-      ),
-      elevation: 3.0,
-      child: new GestureDetector(
-        onTap: () {},
-        child: new Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new NetworkImage(gridCard),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-            )
-        ),
-      ),
-    );*/
   }
 }
