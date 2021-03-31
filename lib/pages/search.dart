@@ -12,8 +12,6 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
 
-  bool _showBottomSheet = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
