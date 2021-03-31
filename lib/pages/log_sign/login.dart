@@ -254,7 +254,7 @@ class Login{
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 15),
+                    margin: EdgeInsets.only(top: 20, bottom: 15, left: 10.0, right: 10.0),
                     child: title,
                   ),
                   TextButton(

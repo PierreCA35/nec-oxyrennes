@@ -27,22 +27,18 @@ class _HomeLoginState extends State<HomeLogin> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     var widthOfScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? new AppBar(
-        backgroundColor: AppColors.blackLightColor,
-        centerTitle: true,
         title: Container(
             height: 100,
             width: 100,
-            child: Image.asset("assets/logo_NEC_.png")),
+            child: Image.asset("assets/logo_NEC_.png")
+        ),
+        backgroundColor: AppColors.blackLightColor,
       )
-          : PreferredSize(
-          child: topMenu(),
-          preferredSize: Size(screenSize.width, 1000)
-      ),
+          : null,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Container(
@@ -157,26 +153,31 @@ class _HomeLoginState extends State<HomeLogin> {
   }
 
   Widget boutonConnexion(double width, BuildContext context){
-    return Container(
-      width: width,
-      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
-      child: ElevatedButton(
-        child: TextTitreBouton(
-          "Connexion",
-          fontSize: 15,
-          color: AppColors.greyLightColor,
-        ),
-        style: ButtonStyle(
-          elevation: MaterialStateProperty.all<double>(6.0),
-          backgroundColor: MaterialStateProperty.all<Color>(
-              AppColors.blackLightColor
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: width,
+          margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+          child: ElevatedButton(
+            child: TextTitreBouton(
+              "Connexion",
+              fontSize: 15,
+              color: AppColors.greyLightColor,
+            ),
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all<double>(6.0),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  AppColors.blackLightColor
+              ),
+              padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  EdgeInsets.only(top: 25.0, bottom: 25.0, left: 10.0, right: 130.0)
+              ),
+            ),
+            onPressed: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => LoginSignUpPage())),
           ),
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.only(top: 25.0, bottom: 25.0, left: 10.0, right: 130.0)
-          ),
         ),
-        onPressed: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => LoginSignUpPage())),
-      ),
+      ],
     );
   }
 
@@ -200,44 +201,6 @@ class _HomeLoginState extends State<HomeLogin> {
           ),
         )
       ],
-    );
-  }
-
-  Widget topMenu(){
-    return Container(
-      color: AppColors.blackLightColor,
-      child: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              child: TextTitreBouton(
-                "Accueil",
-                color: AppColors.greyLightColor,
-              ),
-              onTap: null,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: GestureDetector(
-                child: TextTitreBouton(
-                  "Recherche",
-                  color: AppColors.greyLightColor,
-                ),
-                onTap: null,
-              ),
-            ),
-            GestureDetector(
-              child: TextTitreBouton(
-                "Profil",
-                color: AppColors.greyLightColor,
-              ),
-              onTap: null,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

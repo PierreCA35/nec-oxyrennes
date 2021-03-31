@@ -49,18 +49,14 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
         }
       },
       child: Scaffold(
-        appBar: ResponsiveWidget.isSmallScreen(context)
-            ? new AppBar(
-          backgroundColor: AppColors.blackLightColor,
+        appBar: new AppBar(
           centerTitle: true,
           title: Container(
               height: 100,
               width: 100,
-              child: Image.asset("assets/logo_NEC_.png")),
-          )
-            : PreferredSize(
-            child: topMenu(),
-            preferredSize: Size(screenSize.width, 1000)
+              child: Image.asset("assets/logo_NEC_.png")
+          ),
+          backgroundColor: AppColors.blackLightColor,
         ),
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,

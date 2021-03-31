@@ -242,7 +242,6 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
                         ),
                         onTap: (){
                           logOut(context);
-                          Navigator.pop(context);
                         },
                       ),
                       Container(
@@ -317,6 +316,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
             TextButton(
               onPressed: (){
                 FirebaseClass().logOut();
+                Navigator.pop(context);
                 Navigator.pop(context);
               },
               child: TextTitreBouton(

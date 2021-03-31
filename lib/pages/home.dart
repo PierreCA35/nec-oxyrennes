@@ -11,6 +11,7 @@ import 'package:new_explorer_challenge/library/widgets/constants.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/home.dart';
+import 'package:new_explorer_challenge/model/responsive.dart';
 import 'package:new_explorer_challenge/pages/ajouter_contenu.dart';
 import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
 import 'package:new_explorer_challenge/values/values.dart';
@@ -132,16 +133,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(
+        appBar: ResponsiveWidget.isSmallScreen(context)
+          ? new AppBar(
           title: Container(
               height: 100,
               width: 100,
               child: Image.asset("assets/logo_NEC_.png")
           ),
           backgroundColor: AppColors.blackLightColor,
-        ),
+        )
+        : null,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Container(
+        floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+          ? Container(
           height: 40,
           width: 40,
           child: FloatingActionButton(
@@ -155,6 +159,35 @@ class _HomePageState extends State<HomePage> {
               }
             },
           ),
+        )
+        : Container(
+          width: 130,
+          height: 35,
+          decoration: BoxDecoration(
+              color: AppColors.blackLightColor,
+              borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                    color: AppColors.blackLightColor,
+                    spreadRadius: 3,
+                    blurRadius: 2,
+                    offset: Offset(1,3)
+                )
+              ]
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 5.0),
+            child: TextButton(
+              onPressed: (){
+                if (me == null){
+                  return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
+                }else{
+                  return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
+                }
+              },
+              child: TextTitreBouton("Publier", fontWeight: FontWeight.w400, color: AppColors.beigeColor,),//Icon(Icons.menu, color: AppColors.blackLightColor,),
+            ),
+          ),
         ),
         body: streamBuilder(),
     );
@@ -165,12 +198,14 @@ class _HomePageState extends State<HomePage> {
       stream: FirebaseFirestore.instance.collection("home").orderBy("date", descending: true).snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot>snapshot){
         if(snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: CircularProgressIndicator(),);
+          return Center(child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(AppColors.beigeColor),),);
         }else{
           return StaggeredGridView.countBuilder(
-            crossAxisCount: 4,
-            mainAxisSpacing: 4.0,
+            padding: EdgeInsets.only(top: 30.0, left: 10, right: 10),
+            crossAxisCount: (ResponsiveWidget.isSmallScreen(context)) ? 4 : 10,
+            mainAxisSpacing: 8.0,
             crossAxisSpacing: 4.0,
+            shrinkWrap: true,
             itemCount: snapshot.data.size,
             itemBuilder: (context, index){
               Home homeBorde = new Home(snapshot.data.docs[index]);

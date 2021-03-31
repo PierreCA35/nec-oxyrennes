@@ -10,6 +10,7 @@ import 'package:new_explorer_challenge/library/widgets/photo_profile.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/carnet_de_bord.dart';
+import 'package:new_explorer_challenge/model/responsive.dart';
 import 'package:new_explorer_challenge/model/user.dart';
 import 'package:new_explorer_challenge/pages/parametre_profile.dart';
 import 'package:new_explorer_challenge/values/values.dart';
@@ -59,7 +60,8 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: ResponsiveWidget.isSmallScreen(context)
+        ? new AppBar(
         backgroundColor: AppColors.blackLightColor,
         title: Container(
           height: 100,
@@ -80,6 +82,20 @@ class _ProfilPageState extends State<ProfilPage> {
               )
           ),
         ],
+      )
+      : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
+        width: 50,
+        height: 50,
+        child: FloatingActionButton(
+          child: Icon(Icons.build_rounded, color: AppColors.beigeColor,),
+          backgroundColor: AppColors.blackLightColor,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
+          },
+        )
       ),
       backgroundColor: AppColors.greyLightColor,
       body: StreamBuilder(
