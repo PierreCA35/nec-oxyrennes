@@ -85,7 +85,8 @@ class _ProfilPageState extends State<ProfilPage> {
       )
       : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: Container(
+      floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+        ? Container(
         margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
         width: 50,
         height: 50,
@@ -96,7 +97,8 @@ class _ProfilPageState extends State<ProfilPage> {
             Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
           },
         )
-      ),
+      )
+      : null,
       backgroundColor: AppColors.greyLightColor,
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("users").snapshots(),

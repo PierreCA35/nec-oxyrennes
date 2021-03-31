@@ -135,6 +135,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: ResponsiveWidget.isSmallScreen(context)
           ? new AppBar(
+          centerTitle: true,
           title: Container(
               height: 100,
               width: 100,
