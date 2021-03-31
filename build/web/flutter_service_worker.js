@@ -3,8 +3,9 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "e67fbecff93a90795babe1346b14ee37",
+  "assets/AssetManifest.json": "6ff251e5e3dce54065983b5f01f5d1e4",
 "assets/assets/adventure.png": "61799376c293b5899b40ce7764b69f79",
+"assets/assets/calendar_star.png": "f252e836b6239e9ebc36391dd38e976d",
 "assets/assets/joyride.png": "b2c19337bd71daa8e579ed8a24108962",
 "assets/assets/logo_NEC_.png": "54699ca0f0ce293922a31469f43ec49b",
 "assets/assets/mountain.png": "46f14267ec184b91d3b8e664e884d0d3",
@@ -12,9 +13,10 @@ const RESOURCES = {
 "assets/assets/ostrich.png": "9c46e9f9b35d57c7a79b2ef5ba9c59ea",
 "assets/assets/red-poppy.png": "6abc46574a4c8d2e001969d4fc420ed3",
 "assets/assets/rice.png": "d97d21237cf37b26714f8b8b43555544",
+"assets/assets/youpi.png": "15475c4b8c26764cc5bb01cc84198c55",
 "assets/FontManifest.json": "e3637cec141ff037b4151edf1c0411cb",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "b357fd26d500633b06c480cfc074dc5a",
+"assets/NOTICES": "30c78d46ea0e048a4b226bdc222ccf01",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/fluttericon/lib/fonts/Brandico.ttf": "791921e9b25210e2551b6eda3f86c733",
 "assets/packages/fluttericon/lib/fonts/Elusive.ttf": "23f24df0388819e94db2b3c19841841c",
@@ -39,9 +41,9 @@ const RESOURCES = {
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "f3305ff532fc186618a7e375c865926b",
-"/": "f3305ff532fc186618a7e375c865926b",
-"main.dart.js": "da04cc285ee6f1b613faedc3d3878112",
+"index.html": "9e24378d223f8c410d78511d4eddf5c0",
+"/": "9e24378d223f8c410d78511d4eddf5c0",
+"main.dart.js": "a4740061106a6626af4799b71273aa38",
 "manifest.json": "1ca524e3e0fafa84e2603aec1a8c4d53",
 "version.json": "ee4214a862cc4088142331a406e7d173"
 };
