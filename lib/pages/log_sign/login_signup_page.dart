@@ -15,7 +15,7 @@ class LoginSignUpPage extends StatefulWidget {
 class _LoginSignUpState extends State<LoginSignUpPage> {
 
   final PageController _pageController = PageController(initialPage: 0);
-  int _currentPage = 0;
+  int currentPage = 0;
   TextEditingController _email;
   TextEditingController _pwd;
   TextEditingController _pseudo;
@@ -49,18 +49,14 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
         }
       },
       child: Scaffold(
-        appBar: ResponsiveWidget.isSmallScreen(context)
-            ? new AppBar(
-          backgroundColor: AppColors.blackLightColor,
+        appBar: new AppBar(
           centerTitle: true,
           title: Container(
               height: 100,
               width: 100,
-              child: Image.asset("assets/logo_NEC_.png")),
-          )
-            : PreferredSize(
-            child: topMenu(),
-            preferredSize: Size(screenSize.width, 1000)
+              child: Image.asset("assets/logo_NEC_.png")
+          ),
+          backgroundColor: AppColors.blackLightColor,
         ),
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,
@@ -71,13 +67,13 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
             child: ListView(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height / 1.20,
+                  height: MediaQuery.of(context).size.height,
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,
                     onPageChanged: (int page){
                       setState(() {
-                        _currentPage = page;
+                        currentPage = page;
                       });
                     },
                     children: [

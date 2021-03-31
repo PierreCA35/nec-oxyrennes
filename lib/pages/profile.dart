@@ -7,10 +7,10 @@ import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_detai
 import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_widgets.dart';
 import 'package:new_explorer_challenge/library/widgets/constants.dart';
 import 'package:new_explorer_challenge/library/widgets/photo_profile.dart';
-import 'package:new_explorer_challenge/library/widgets/take_photo_profil.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/carnet_de_bord.dart';
+import 'package:new_explorer_challenge/model/responsive.dart';
 import 'package:new_explorer_challenge/model/user.dart';
 import 'package:new_explorer_challenge/pages/parametre_profile.dart';
 import 'package:new_explorer_challenge/values/values.dart';
@@ -54,14 +54,14 @@ class _ProfilPageState extends State<ProfilPage> {
     controller.dispose();
     _pseudo.dispose();
     subscription.cancel();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+      appBar: ResponsiveWidget.isSmallScreen(context)
+        ? new AppBar(
         backgroundColor: AppColors.blackLightColor,
         title: Container(
           height: 100,
@@ -74,7 +74,7 @@ class _ProfilPageState extends State<ProfilPage> {
               width: 30,
               height: 30,
               child: FloatingActionButton(
-                child: Icon(Icons.ac_unit, color: AppColors.blackLightColor,),
+                child: Icon(Icons.build_rounded, color: AppColors.blackLightColor,),
                 backgroundColor: AppColors.beigeColor,
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
@@ -82,6 +82,20 @@ class _ProfilPageState extends State<ProfilPage> {
               )
           ),
         ],
+      )
+      : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
+        width: 50,
+        height: 50,
+        child: FloatingActionButton(
+          child: Icon(Icons.build_rounded, color: AppColors.beigeColor,),
+          backgroundColor: AppColors.blackLightColor,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ParametreProfilPage(me)));
+          },
+        )
       ),
       backgroundColor: AppColors.greyLightColor,
       body: StreamBuilder(
@@ -106,12 +120,7 @@ class _ProfilPageState extends State<ProfilPage> {
                           child: ProfilPhoto(
                             urlImage: widget.user.photoProfil,
                             size: 40.0,
-                            onPressed: (){
-                              TakePhotoProfil(context, widget.user).changePictureUser();
-                            },
-                            child: (widget.user.photoProfil == "")
-                                ? Icon(Icons.add_a_photo_rounded, color: AppColors.blackLightColor, size: 25.0,)
-                                : null,
+                            onPressed: null,
                           ),
                         ),
                       ),
@@ -123,7 +132,6 @@ class _ProfilPageState extends State<ProfilPage> {
                     ),
                     //Carnet de Bord,
                     Container(
-                      height: MediaQuery.of(context).size.height,
                       margin: EdgeInsets.only(top: 30.0),
                       child: streamBuilder(),
                     ),
@@ -145,6 +153,7 @@ class _ProfilPageState extends State<ProfilPage> {
           return Center(child: null,);
         }else{
           return ListView.builder(
+            shrinkWrap: true,
             itemCount: snapshot.data.size,
             itemBuilder: (context, index){
               CarnetDeBord carnet = new CarnetDeBord(snapshot.data.docs[index]);

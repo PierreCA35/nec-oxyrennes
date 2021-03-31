@@ -3,6 +3,8 @@ import 'package:new_explorer_challenge/model/user.dart';
 
 UserClass me;
 
+String photoHome = "";
+
 String keyUid = "uid";
 String keyEmail = "email";
 String keyPseudo = "pseudo";

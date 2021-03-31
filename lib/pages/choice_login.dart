@@ -6,22 +6,7 @@ import 'package:new_explorer_challenge/pages/profile.dart';
 
 import 'log_sign/home_login.dart';
 
-class ChoiceLogin extends StatefulWidget {
-  @override
-  _ChoiceLoginState createState() => _ChoiceLoginState();
-}
-
-class _ChoiceLoginState extends State<ChoiceLogin> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class ChoiceLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

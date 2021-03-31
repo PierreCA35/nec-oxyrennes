@@ -1,15 +1,20 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttericon/elusive_icons.dart';
+import 'package:image_picker_web/image_picker_web.dart';
+import 'package:mime_type/mime_type.dart';
 import 'package:new_explorer_challenge/firebase/firestore.dart';
+import 'package:new_explorer_challenge/library/widgets/constants.dart';
 import 'package:new_explorer_challenge/library/widgets/photo_profile.dart';
 import 'package:new_explorer_challenge/library/widgets/take_photo_profil.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/user.dart';
 import 'package:new_explorer_challenge/values/values.dart';
-import 'package:fluttericon/elusive_icons.dart';
+import 'package:path/path.dart';
 
 
 // ignore: must_be_immutable
@@ -29,6 +34,8 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
   ScrollController controller;
   TextEditingController _pseudo;
 
+  Uri imageWeb;
+
   @override
   void initState() {
     super.initState();
@@ -46,6 +53,12 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: AppColors.blackLightColor,
+        title: Container(
+            height: 100,
+            width: 100,
+            child: Image.asset("assets/logo_NEC_.png")
+        ),
+        automaticallyImplyLeading: false,
         actions: [
           Container(
             margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
@@ -55,7 +68,9 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
               child: Icon(Icons.clear, color: AppColors.blackLightColor,),
               backgroundColor: AppColors.beigeColor,
               onPressed: (){
-                Navigator.pop(context);
+                setState(() {
+                  Navigator.pop(context);
+                });
               },
             )
           ),
@@ -70,7 +85,6 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
           }
           return SingleChildScrollView(
             child: InkWell(
-              onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: SafeArea(
@@ -87,7 +101,11 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
                               urlImage: widget.user.photoProfil,
                               size: 40.0,
                               onPressed: (){
-                                TakePhotoProfil(context, widget.user).changePictureUser();
+                                if(Theme.of(context).platform != TargetPlatform.android || Theme.of(context).platform != TargetPlatform.iOS || Theme.of(context).platform != TargetPlatform.fuchsia){
+                                  takePictureWeb();
+                                }else{
+                                  TakePhotoProfil(context, widget.user).changePictureUser();
+                                }
                               },
                               child: (widget.user.photoProfil == "")
                               ? Icon(Icons.add_a_photo_rounded, color: AppColors.blackLightColor, size: 25.0,)
@@ -149,7 +167,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
                                 height: 30,
                                 child: FloatingActionButton(
                                   onPressed: null,
-                                  child: Icon(Icons.ac_unit, color: AppColors.greyLightColor, size: 20,),
+                                  child: Icon(Icons.build_rounded, color: AppColors.greyLightColor, size: 20,),
                                   backgroundColor: AppColors.blackLightColor,
                                 ),
                               ),
@@ -223,7 +241,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
                           ),
                         ),
                         onTap: (){
-                          logOut();
+                          logOut(context);
                         },
                       ),
                       Container(
@@ -243,7 +261,35 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
     );
   }
 
-  Future<void> logOut(){
+  Future takePictureWeb() async{
+
+    ImagePickerWeb.getImageInfo.then((MediaInfo mediaInfo){
+      uploadFile(mediaInfo, 'images', mediaInfo.fileName);
+    });
+  }
+
+  Future<Uri> uploadFile(MediaInfo mediaInfo, String ref, String fileName) async{
+    try{
+      String mimeType = mime(basename(mediaInfo.fileName));
+      var metaData = UploadMetadata(contentType: mimeType);
+      StorageReference storageReference = storage().ref(ref).child("storie_home/$fileName");
+
+      UploadTaskSnapshot uploadTaskSnapshot = await storageReference.put(mediaInfo.data, metaData).future;
+      Uri imageUri = await uploadTaskSnapshot.ref.getDownloadURL();
+      setState(() {
+        imageWeb = imageUri;
+        FirebaseClass().modifyFirebaseUser({
+          keyPhotoProfil: imageWeb.toString(),
+        });
+      });
+      return imageWeb;
+    }catch(e){
+      print("File upload error: $e");
+      return null;
+    }
+  }
+
+  Future<void> logOut(BuildContext context){
     TextTitreBouton title = TextTitreBouton(
       "Déconnexion",
     );
@@ -270,6 +316,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
             TextButton(
               onPressed: (){
                 FirebaseClass().logOut();
+                Navigator.pop(context);
                 Navigator.pop(context);
               },
               child: TextTitreBouton(

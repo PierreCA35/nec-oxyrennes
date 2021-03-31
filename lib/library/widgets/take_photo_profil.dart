@@ -23,7 +23,7 @@ class TakePhotoProfil{
 
   changePictureUser() async{
     if(user.uid == me.uid){
-      await showBottomSheet(
+      showBottomSheet(
         context: context,
         builder: (ctx){
           return Container(

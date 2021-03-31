@@ -1,241 +1,295 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expansion_card/expansion_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:new_explorer_challenge/library/widgets/animation_hero/datas.dart';
+import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_detail.dart';
+import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_widgets.dart';
+import 'package:new_explorer_challenge/library/widgets/constants.dart';
+import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
+import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
+import 'package:new_explorer_challenge/model/home.dart';
+import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/pages/ajouter_contenu.dart';
+import 'package:new_explorer_challenge/pages/log_sign/login_signup_page.dart';
 import 'package:new_explorer_challenge/values/values.dart';
 
-/*List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 1),
-];*/
-
- const String random0 = 'https://picsum.photos/207/300/?random';
+ /*const String random0 = 'https://picsum.photos/207/300/?random';
  const String random1 = 'https://picsum.photos/207/300/?random';
  const String random2 = 'https://picsum.photos/207/300/?random';
  const String random3 = 'https://picsum.photos/207/300/?random';
- const String random4 = 'https://picsum.photos/207/300/?random';
+ const String random4 = 'https://picsum.photos/207/300/?random';*/
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: new AppBar(
-          title: new Text('NEC Logo'),
-          backgroundColor: AppColors.blackLightColor,
-        ),
-        floatingActionButton: Container(
-          height: 30,
-          width: 30,
-          child: FloatingActionButton(
-            child: Icon(Icons.add_rounded, color: AppColors.blackLightColor,),
-            onPressed: null,
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  bool get mounted => super.mounted;
+
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  init() async{
+    Timer(Duration(seconds: 2), () async{
+      return await popUpConcours();
+    });
+  }
+
+  Future<void> popUpConcours() async{
+    return await showDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierColor: Color.fromRGBO(245, 245, 249, 0.2),
+      builder: (context){
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
           ),
-        ),
-        body: StaggeredGridView.countBuilder(
-          crossAxisCount: 4,
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-          itemCount: 15,
-          itemBuilder: (context, index){
-            return _ImageTile(random0);
-          },
-          staggeredTileBuilder: (index){
-            return new StaggeredTile.count(
-              2,
-              index.isEven ? 2 : 1,
-            );
-          },
-        ),
+          title: Container(
+            height: 300,
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: Icon(Icons.cancel),
+                    iconSize: 30,
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20.0),
+                  child: Image.asset(
+                    "assets/calendar_star.png",
+                  ),
+                ),
+                TextTitreBouton(
+                  "Découvrez nos évènements",
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                Container(
+                  height: 50,
+                  width: 220,
+                  margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: ElevatedButton(
+                    child: TextTitreBouton(
+                      "Challenge Réflexion",
+                      color: AppColors.greyLightColor,
+                    ),
+                    onPressed: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: 220,
+                  child: ElevatedButton(
+                    child: TextTitreBouton(
+                      "Défi Sportif",
+                      color: AppColors.greyLightColor,
+                    ),
+                    onPressed: (){
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
     );
   }
-}
-class _ImageTile extends StatelessWidget{
-  const _ImageTile(this.gridCard);
-  final gridCard;
+
   @override
-  Widget build(BuildContext context) {
-    return new Card(
-      color: const Color(0x00000000),
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-      ),
-      elevation: 3.0,
-      child: new GestureDetector(
-        onTap: () {},
-        child: new Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new NetworkImage(gridCard),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-            )
-        ),
-      ),
-    );
+  void dispose() {
+    super.dispose();
   }
-}
-
-/*
-class HomePage extends StatelessWidget{
-
-  final double heightForSmallImages = 100.0;
-  final double heightForBigImages = 200.0;
 
   @override
   Widget build(BuildContext context) {
-    var marginBetweenImages = Sizes.MARGIN_16 * 2;
-    var marginAroundEntireScreen = Sizes.MARGIN_16 * 2;
-    var widthOfScreen = MediaQuery.of(context).size.width;
-    var widthOfSmallImage = (widthOfScreen - (marginAroundEntireScreen + marginBetweenImages)) / 3;
-    var widthOfLargeImage = (widthOfSmallImage * 2) + 16;
-
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: Sizes.MARGIN_16, vertical: Sizes.MARGIN_16),
-        child: ListView(
-          children: <Widget>[
-            straightLineImageRow(imageWidth: widthOfSmallImage, context: context),
-            SizedBox(height: Sizes.MARGIN_16),
-            gridImageRow(
-                widthOfSmallImage: widthOfSmallImage,
-                widthOfLargeImage: widthOfLargeImage,
-                context: context),
-            SizedBox(height: Sizes.MARGIN_16),
-            straightLineImageRow(imageWidth: widthOfSmallImage, context: context),
-            SizedBox(height: Sizes.MARGIN_16),
-            fullWidth(width: widthOfScreen, context: context)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget straightLineImageRow({
-    @required double imageWidth,
-    @required BuildContext context,
-  }) {
-    return Row(
-      children: createImageRow(
-        numberOfImages: 3,
-        imageWidth: imageWidth,
-        context: context,
-      ),
-    );
-  }
-
-  Widget gridImageRow({
-    @required double widthOfSmallImage,
-    @required double widthOfLargeImage,
-    @required BuildContext context,
-  }) {
-    return Row(
-      children: <Widget>[
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            InkWell(
-              onTap: null,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(Sizes.RADIUS_8),
-                child: Image.asset(
-                  ImagePath.homeImage1,
-                  width: widthOfSmallImage,
-                  height: heightForSmallImages,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-            SizedBox(height: Sizes.MARGIN_16),
-            InkWell(
-              onTap: null,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(Sizes.RADIUS_8),
-                child: Image.asset(
-                  ImagePath.homeImage5,
-                  width: widthOfSmallImage,
-                  height: heightForSmallImages,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(width: Sizes.MARGIN_16),
-        InkWell(
-          onTap: null,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(Sizes.RADIUS_8),
-            child: Image.asset(
-              ImagePath.homeImage1,
-              width: widthOfLargeImage,
-              fit: BoxFit.fitHeight,
-              height: heightForBigImages + Sizes.MARGIN_16,
-            ),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+          ? new AppBar(
+          title: Container(
+              height: 100,
+              width: 100,
+              child: Image.asset("assets/logo_NEC_.png")
+          ),
+          backgroundColor: AppColors.blackLightColor,
+        )
+        : null,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+          ? Container(
+          height: 40,
+          width: 40,
+          child: FloatingActionButton(
+            backgroundColor: AppColors.blackLightColor,
+            child: Icon(Icons.add_rounded, color: AppColors.beigeColor, size: 40,),
+            onPressed: (){
+              if (me == null){
+                return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
+              }else{
+                return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
+              }
+            },
           ),
         )
-      ],
-    );
-  }
-
-  List<Widget> createImageRow(
-      {@required numberOfImages,
-        @required imageWidth,
-        @required BuildContext context}) {
-    List<Widget> images = [];
-    List<String> imagePaths = [
-      ImagePath.random0,
-      ImagePath.random1,
-      ImagePath.random2,
-      ImagePath.random3,
-
-    ];
-
-    List<int> list = List<int>.generate(numberOfImages, (i) => i + 1);
-
-    list.forEach((i) {
-      images.add(
-        InkWell(
-          onTap: null,
-          child: Container(
-            margin: EdgeInsets.only(
-                right: (i != numberOfImages) ? Sizes.MARGIN_16 : 0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(Sizes.RADIUS_8),
-              child: Image.asset(
-                imagePaths[i - 1],
-                width: imageWidth,
-                height: heightForSmallImages,
-                fit: BoxFit.fitHeight,
-              ),
+        : Container(
+          width: 130,
+          height: 35,
+          decoration: BoxDecoration(
+              color: AppColors.blackLightColor,
+              borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                    color: AppColors.blackLightColor,
+                    spreadRadius: 3,
+                    blurRadius: 2,
+                    offset: Offset(1,3)
+                )
+              ]
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(right: 5.0),
+            child: TextButton(
+              onPressed: (){
+                if (me == null){
+                  return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
+                }else{
+                  return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
+                }
+              },
+              child: TextTitreBouton("Publier", fontWeight: FontWeight.w400, color: AppColors.beigeColor,),//Icon(Icons.menu, color: AppColors.blackLightColor,),
             ),
           ),
         ),
-      );
-    });
-    return images;
+        body: streamBuilder(),
+    );
   }
 
-  Widget fullWidth(
-      {@required width, height = 200.0, @required BuildContext context}) {
-    return InkWell(
-      onTap: null,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(Sizes.RADIUS_8),
-        child: Image.asset(
-          ImagePath.homeImage2,
-          width: width,
-          height: height,
-          fit: BoxFit.fitHeight,
+  Widget streamBuilder(){
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance.collection("home").orderBy("date", descending: true).snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot>snapshot){
+        if(snapshot.connectionState == ConnectionState.waiting){
+          return Center(child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(AppColors.beigeColor),),);
+        }else{
+          return StaggeredGridView.countBuilder(
+            padding: EdgeInsets.only(top: 30.0, left: 10, right: 10),
+            crossAxisCount: (ResponsiveWidget.isSmallScreen(context)) ? 4 : 10,
+            mainAxisSpacing: 8.0,
+            crossAxisSpacing: 4.0,
+            shrinkWrap: true,
+            itemCount: snapshot.data.size,
+            itemBuilder: (context, index){
+              Home homeBorde = new Home(snapshot.data.docs[index]);
+              HeroWidget hero = HeroWidget(homeBorde.photo);
+              return _ImageTile(homeBorde.photo, homeBorde, hero, homeBorde.titre, homeBorde.description);
+            },
+            staggeredTileBuilder: (index){
+              return new StaggeredTile.count(
+                2,
+                index.isEven ? 2 : 2,
+              );
+            },
+          );
+        }
+      },
+    );
+  }
+}
+
+class _ImageTile extends StatelessWidget{
+
+  const _ImageTile(this.gridCard, this.homeBorde, this.hero, this.titre, this.description);
+  final gridCard;
+  final HeroWidget hero;
+  final Home homeBorde;
+  final String titre;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      margin: EdgeInsets.all(3.0),
+      child: ExpansionCard(
+        borderRadius: 5.0,
+        backgroundColor: Color.fromRGBO(245, 245, 249, 0.6),
+        title: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5.0),
+            color: Color.fromRGBO(255, 218, 187, 0.6),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextTitreBouton(titre),
+            ],
+          ),
         ),
+        background: Container(
+          height: 170,
+          child: Image.network(gridCard, fit: BoxFit.cover,)
+        ),
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            margin: EdgeInsets.symmetric(horizontal: 7),
+            child: TextParagraphe(
+              (homeBorde.description.length <= 60)
+              ? homeBorde.description
+              : "${homeBorde.description.substring(0, 59)}...",
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              margin: EdgeInsets.all(3.0),
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                backgroundColor: AppColors.blackLightColor,
+                child: Icon(Icons.search, color: AppColors.beigeColor,),
+                onPressed: (){
+                  Datas().pusher(context, titre, HeroDetailHomeBord(homeBorde, hero));
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-*/
