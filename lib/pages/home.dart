@@ -35,6 +35,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    init();
+  }
+
+  init() async{
     Timer(Duration(seconds: 2), () async{
       return await popUpConcours();
     });
@@ -176,7 +180,7 @@ class _HomePageState extends State<HomePage> {
             staggeredTileBuilder: (index){
               return new StaggeredTile.count(
                 2,
-                index.isEven ? 2 : 3,
+                index.isEven ? 2 : 2,
               );
             },
           );

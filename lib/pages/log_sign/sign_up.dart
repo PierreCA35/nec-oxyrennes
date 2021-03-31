@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/firebase/firestore.dart';
 import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
-import 'package:new_explorer_challenge/values/values.dart';
 import 'package:new_explorer_challenge/model/responsive.dart';
+import 'package:new_explorer_challenge/values/values.dart';
 
 class SignUp{
 
@@ -29,7 +29,7 @@ class SignUp{
     return Stack(
       children: [
         Positioned(
-          top: 20.0,
+          top: 10.0,
           child: Center(
             child: Container(
               height: 180,
@@ -148,15 +148,15 @@ class SignUp{
           obscureText: _obscureText,
           cursorColor: AppColors.blackLightColor,
           decoration: InputDecoration(
-            hintText: "Mot de passe",
+            hintText: "Mot de passe (6 min)",
             border: UnderlineInputBorder(
                 borderSide: BorderSide.none
             ),
             suffixIcon: GestureDetector(
               onTap: _togglePwd,
               child: (_obscureText == true)
-                  ? Icon(Icons.visibility_rounded, color: Colors.grey,)
-                  : Icon(Icons.visibility_off_rounded, color: AppColors.blackLightColor,),
+                ? Icon(Icons.visibility_rounded, color: Colors.grey,)
+                : Icon(Icons.visibility_off_rounded, color: AppColors.blackLightColor,),
             ),
           ),
         ),
@@ -257,33 +257,47 @@ class SignUp{
         builder: (ctx){
           return AlertDialog(
             titlePadding: EdgeInsets.only(top: 10.0, right: 0.0, left: 0.0, bottom: 8.0),
-            title: title,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-            actions: [
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: 25.0),
-                    child: TextParagraphe("CGU", color: AppColors.blackLightColor,),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 0.0),
-                    child: TextButton(
-                      child: TextTitreBouton(
-                        "Accepter",
-                        textAlign: TextAlign.center,
+            title: Container(
+              height: 180,
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 20, bottom: 15),
+                      child: title,
+                    ),
+                    TextButton(
+                      child: TextParagraphe(
+                        "CGU",
                         color: AppColors.blackLightColor,
                       ),
-                      onPressed: (){
-                        FirebaseClass().createAccount(_email.text.trim().toLowerCase(), _pwd.text.trim().toLowerCase(), _pseudo.text.trim());
-                        Navigator.pop(context);
-                        Navigator.pop(context);
-                      },
+                      onPressed: null,
                     ),
-                  ),
-                ],
+                    Container(
+                      margin: EdgeInsets.only(top: 15),
+                      height: 50,
+                      width: 150,
+                      child: TextButton(
+                        child: TextTitreBouton(
+                          "Accepter",
+                          textAlign: TextAlign.center,
+                          color: AppColors.beigeColor,
+                        ),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                        ),
+                        onPressed: (){
+                          FirebaseClass().createAccount(_email.text.trim().toLowerCase(), _pwd.text, _pseudo.text);
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
+            ),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
           );
         }
     );

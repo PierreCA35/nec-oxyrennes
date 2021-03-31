@@ -164,7 +164,7 @@ class Login{
           obscureText: _obscureText,
           cursorColor: AppColors.blackLightColor,
           decoration: InputDecoration(
-            hintText: "Mot de passe",
+            hintText: "Mot de passe (6 min)",
             border: UnderlineInputBorder(
                 borderSide: BorderSide.none
             ),
@@ -240,7 +240,7 @@ class Login{
       "Conditons Générales d'Utilisation",
       textAlign: TextAlign.center,
       color: AppColors.blackLightColor,
-      fontSize: 20.0,
+      fontSize: 18.0,
     );
     return showDialog(
       context: context,
@@ -248,33 +248,47 @@ class Login{
       builder: (ctx){
         return AlertDialog(
           titlePadding: EdgeInsets.only(top: 10.0, right: 0.0, left: 0.0, bottom: 8.0),
-          title: title,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-          actions: [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 25.0),
-                  child: TextParagraphe("CGU", color: AppColors.blackLightColor,),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 0.0),
-                  child: TextButton(
-                    child: TextTitreBouton(
-                      "Accepter",
-                      textAlign: TextAlign.center,
+          title: Container(
+            height: 180,
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20, bottom: 15),
+                    child: title,
+                  ),
+                  TextButton(
+                    child: TextParagraphe(
+                      "CGU",
                       color: AppColors.blackLightColor,
                     ),
-                    onPressed: (){
-                      FirebaseClass().connectAccount(_email.text.trim(), _pwd.text.trim());
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
+                    onPressed: null,
                   ),
-                ),
-              ],
+                  Container(
+                    margin: EdgeInsets.only(top: 15),
+                    height: 50,
+                    width: 150,
+                    child: TextButton(
+                      child: TextTitreBouton(
+                        "Accepter",
+                        textAlign: TextAlign.center,
+                        color: AppColors.beigeColor,
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(AppColors.blackLightColor)
+                      ),
+                      onPressed: (){
+                        FirebaseClass().connectAccount(_email.text.trim(), _pwd.text);
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         );
       }
     );
@@ -301,36 +315,46 @@ class Login{
                 borderRadius: BorderRadius.circular(5.0)
             ),
             actions: [
-              ResponsiveWidget.isSmallScreen(context)
-                  ? Container(
-                width: MediaQuery.of(context).size.width / 1.8,
-                height: 42.0,
-                child: TextField(
-                  controller: _email,
-                  decoration: InputDecoration(
-                      hintText: "Email",
-                      border: UnderlineInputBorder(borderSide: BorderSide.none)
-                  ),
-                ),
-              )
-                  : Container(
-                width: 300,
-                height: 42.0,
-                child: TextField(
-                  controller: _email,
-                  decoration: InputDecoration(
-                      hintText: "Email",
-                      border: UnderlineInputBorder(borderSide: BorderSide.none)
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(ctx).pop(FirebaseClass().changePassword(_email.text.trim().toLowerCase(), context)),
-                child: new TextTitreBouton("OK"),
-              )
+              fieldMailButtonOk(ctx),
             ],
           );
         }
+    );
+  }
+
+  Widget fieldMailButtonOk(BuildContext ctx){
+    return Row(
+      children: [
+        ResponsiveWidget.isSmallScreen(context)
+            ? Container(
+          width: MediaQuery.of(context).size.width / 1.8,
+          height: 42.0,
+          child: TextField(
+            controller: _email,
+            cursorColor: AppColors.blackLightColor,
+            decoration: InputDecoration(
+              hintText: "Email",
+              border: UnderlineInputBorder(borderSide: BorderSide.none)
+            ),
+          ),
+        )
+            : Container(
+          width: 300,
+          height: 42.0,
+          child: TextField(
+            controller: _email,
+            cursorColor: AppColors.blackLightColor,
+            decoration: InputDecoration(
+              hintText: "Email",
+              border: UnderlineInputBorder(borderSide: BorderSide.none)
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(FirebaseClass().changePassword(_email.text.trim().toLowerCase(), context)),
+          child: new TextTitreBouton("OK", fontSize: 16,),
+        )
+      ],
     );
   }
 }

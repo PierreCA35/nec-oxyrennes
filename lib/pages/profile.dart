@@ -49,6 +49,14 @@ class _ProfilPageState extends State<ProfilPage> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    _pseudo.dispose();
+    subscription.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
@@ -108,7 +116,6 @@ class _ProfilPageState extends State<ProfilPage> {
                     ),
                     //Carnet de Bord,
                     Container(
-                      height: MediaQuery.of(context).size.height,
                       margin: EdgeInsets.only(top: 30.0),
                       child: streamBuilder(),
                     ),
@@ -130,6 +137,7 @@ class _ProfilPageState extends State<ProfilPage> {
           return Center(child: null,);
         }else{
           return ListView.builder(
+            shrinkWrap: true,
             itemCount: snapshot.data.size,
             itemBuilder: (context, index){
               CarnetDeBord carnet = new CarnetDeBord(snapshot.data.docs[index]);
@@ -214,13 +222,5 @@ class _ProfilPageState extends State<ProfilPage> {
         }
       },
     );
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    _pseudo.dispose();
-    subscription.cancel();
-    super.dispose();
   }
 }

@@ -71,7 +71,7 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
             child: ListView(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height / 1.20,
+                  height: MediaQuery.of(context).size.height,
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttericon/elusive_icons.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 import 'package:mime_type/mime_type.dart';
 import 'package:new_explorer_challenge/firebase/firestore.dart';
@@ -13,7 +14,6 @@ import 'package:new_explorer_challenge/library/widgets/text_paragraphe.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
 import 'package:new_explorer_challenge/model/user.dart';
 import 'package:new_explorer_challenge/values/values.dart';
-import 'package:fluttericon/elusive_icons.dart';
 import 'package:path/path.dart';
 
 
@@ -242,6 +242,7 @@ class _ParametreProfilPageState extends State<ParametreProfilPage> {
                         ),
                         onTap: (){
                           logOut(context);
+                          Navigator.pop(context);
                         },
                       ),
                       Container(

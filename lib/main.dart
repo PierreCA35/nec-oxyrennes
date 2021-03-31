@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/controller/main_app_controller_online.dart';
 
 import 'controller/main_app_controller.dart';

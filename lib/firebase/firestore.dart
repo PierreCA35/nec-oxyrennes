@@ -1,13 +1,13 @@
 
-import 'dart:io';
 import 'dart:async';
+import 'dart:io';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:new_explorer_challenge/library/widgets/toast.dart';
 import 'package:new_explorer_challenge/library/widgets/constants.dart';
+import 'package:new_explorer_challenge/library/widgets/toast.dart';
 
 class FirebaseClass{
 
