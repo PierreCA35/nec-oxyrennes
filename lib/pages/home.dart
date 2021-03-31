@@ -144,14 +144,41 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: AppColors.blackLightColor,
         )
         : null,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: ResponsiveWidget.isSmallScreen(context)
-          ? Container(
-          height: 40,
-          width: 40,
-          child: FloatingActionButton(
-            backgroundColor: AppColors.blackLightColor,
-            child: Icon(Icons.add_rounded, color: AppColors.beigeColor, size: 40,),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+        ? Container(
+        height: 40,
+        width: 40,
+        child: FloatingActionButton(
+          backgroundColor: AppColors.blackLightColor,
+          child: Icon(Icons.add_rounded, color: AppColors.beigeColor, size: 40,),
+          onPressed: (){
+            if (me == null){
+              return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
+            }else{
+              return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
+            }
+          },
+        ),
+      )
+        : Container(
+        width: 130,
+        height: 35,
+        decoration: BoxDecoration(
+            color: AppColors.blackLightColor,
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                  color: AppColors.blackLightColor,
+                  spreadRadius: 3,
+                  blurRadius: 2,
+                  offset: Offset(1,3)
+              )
+            ]
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(right: 5.0),
+          child: TextButton(
             onPressed: (){
               if (me == null){
                 return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
@@ -159,38 +186,11 @@ class _HomePageState extends State<HomePage> {
                 return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
               }
             },
-          ),
-        )
-        : Container(
-          width: 130,
-          height: 35,
-          decoration: BoxDecoration(
-              color: AppColors.blackLightColor,
-              borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                    color: AppColors.blackLightColor,
-                    spreadRadius: 3,
-                    blurRadius: 2,
-                    offset: Offset(1,3)
-                )
-              ]
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 5.0),
-            child: TextButton(
-              onPressed: (){
-                if (me == null){
-                  return Navigator.push(context, MaterialPageRoute(builder: (context) => LoginSignUpPage()));
-                }else{
-                  return Navigator.push(context, MaterialPageRoute(builder: (context) => AjouterContenu()));
-                }
-              },
-              child: TextTitreBouton("Publier", fontWeight: FontWeight.w400, color: AppColors.beigeColor,),//Icon(Icons.menu, color: AppColors.blackLightColor,),
-            ),
+            child: TextTitreBouton("Publier", fontWeight: FontWeight.w400, color: AppColors.beigeColor,),//Icon(Icons.menu, color: AppColors.blackLightColor,),
           ),
         ),
-        body: streamBuilder(),
+      ),
+      body: streamBuilder(),
     );
   }
 

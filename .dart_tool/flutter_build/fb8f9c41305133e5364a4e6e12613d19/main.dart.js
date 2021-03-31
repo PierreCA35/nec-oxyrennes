@@ -72570,7 +72570,7 @@ break
 case 1:return P.C(q,r)}})
 return P.D($async$xu,r)},
 p:function(a){this.aZ(0)},
-J:function(a,b){var s=null,r=t.w,q=b.E(r).f.a.a<800?E.jI(s,!0,C.l,s,M.S(s,U.fw("assets/logo_NEC_.png",s),C.h,s,s,s,s,100,s,s,s,s,100)):s
+J:function(a,b){var s=null,r=t.w,q=b.E(r).f.a.a<800?E.jI(s,!0,C.l,!0,M.S(s,U.fw("assets/logo_NEC_.png",s),C.h,s,s,s,s,100,s,s,s,s,100)):s
 if(b.E(r).f.a.a<800)r=M.S(s,E.he(C.l,L.bg(C.zA,C.a3,40),!1,new Y.aht(b)),C.h,s,s,s,s,40,s,s,s,s,40)
 else{r=H.c([new O.eB(3,C.l,new P.p(1,3),2)],t.Sx)
 r=M.S(s,new T.aK(C.nz,U.io(Q.b0("Publier",C.a3,17,C.A,C.n),new Y.ahu(b),s),s),C.h,s,s,new S.bl(C.l,s,s,new K.cC(new P.b5(20,20),new P.b5(20,20),C.X,C.X),r,s,C.z),s,35,s,s,s,s,130)}return M.jf(q,s,this.ys(),s,r,C.xf,s)},
@@ -73039,14 +73039,14 @@ s.e.p(0)
 s.f.L$=null
 s.r.aI(0)
 s.aZ(0)},
-J:function(a,b){var s,r,q,p,o=null
-if(b.E(t.w).f.a.a<800){s=M.S(o,U.fw("assets/logo_NEC_.png",o),C.h,o,o,o,o,100,o,o,o,o,100)
-s=E.jI(H.c([M.S(o,E.he(C.a3,L.bg(C.nL,C.l,o),!1,new U.ajs(b)),C.h,o,o,o,o,30,new V.K(0,10,15,10),o,o,o,30)],t.t),!0,C.l,o,s)}else s=o
-r=M.S(o,E.he(C.l,L.bg(C.nL,C.a3,o),!1,new U.ajt(b)),C.h,o,o,o,o,50,new V.K(0,10,15,10),o,o,o,50)
-q=K.e7().dL(0,"[DEFAULT]")
-E.bO(q,$.dT())
-p=O.lK(new K.cT(q))
-return M.jf(s,C.x,B.Mp(new U.aju(this),O.hL(p,p.gdJ().er(0,"users")).le(),t.tr),o,r,C.xk,o)},
+J:function(a,b){var s,r,q,p=null,o=t.w
+if(b.E(o).f.a.a<800){s=M.S(p,U.fw("assets/logo_NEC_.png",p),C.h,p,p,p,p,100,p,p,p,p,100)
+s=E.jI(H.c([M.S(p,E.he(C.a3,L.bg(C.nL,C.l,p),!1,new U.ajs(b)),C.h,p,p,p,p,30,new V.K(0,10,15,10),p,p,p,30)],t.t),!0,C.l,p,s)}else s=p
+o=b.E(o).f.a.a<800?M.S(p,E.he(C.l,L.bg(C.nL,C.a3,p),!1,new U.ajt(b)),C.h,p,p,p,p,50,new V.K(0,10,15,10),p,p,p,50):p
+r=K.e7().dL(0,"[DEFAULT]")
+E.bO(r,$.dT())
+q=O.lK(new K.cT(r))
+return M.jf(s,C.x,B.Mp(new U.aju(this),O.hL(q,q.gdJ().er(0,"users")).le(),t.tr),p,o,C.xk,p)},
 ys:function(){var s,r,q,p=K.e7().dL(0,"[DEFAULT]")
 E.bO(p,$.dT())
 s=O.lK(new K.cT(p))

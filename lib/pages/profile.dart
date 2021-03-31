@@ -85,7 +85,7 @@ class _ProfilPageState extends State<ProfilPage> {
       )
       : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+      floatingActionButton: !ResponsiveWidget.isSmallScreen(context)
         ? Container(
         margin: EdgeInsets.only(right: 15.0, bottom: 10.0, top: 10.0),
         width: 50,
