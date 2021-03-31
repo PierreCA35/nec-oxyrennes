@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:new_explorer_challenge/library/widgets/text_titre_bouton.dart';
-import 'package:new_explorer_challenge/model/responsive.dart';
 import 'package:new_explorer_challenge/pages/log_sign/login.dart';
 import 'package:new_explorer_challenge/pages/log_sign/sign_up.dart';
 import 'package:new_explorer_challenge/values/values.dart';
@@ -39,7 +38,6 @@ class _LoginSignUpState extends State<LoginSignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     var widthOfScreen = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: (){
