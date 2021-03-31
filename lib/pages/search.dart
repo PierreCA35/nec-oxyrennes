@@ -26,48 +26,46 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: AppColors.blackLightColor,
       )
           : null,
-      body: SingleChildScrollView(
-        child: Container(
-          child: SafeArea(
-            child: Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20, left: 20),
-                  child: TextTitreBouton(
-                    'Nos évènements !',
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+      body: Container(
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 20, left: 20),
+                child: TextTitreBouton(
+                  'Nos évènements !',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 80, left: 30, right: 30),
-                  child:
-                  ResponsiveWidget.isSmallScreen(context) ||ResponsiveWidget.isMediumScreen(context)
-                    ? ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 8,
-                      itemBuilder: (context, index){
-                       return CardEvenement();
-                      },
-                    )
-                    : GridView.builder(
-                    gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 10
-                    ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 80, left: 30, right: 30),
+                child:
+                ResponsiveWidget.isSmallScreen(context) ||ResponsiveWidget.isMediumScreen(context)
+                  ? ListView.builder(
                     shrinkWrap: true,
                     itemCount: 8,
-                    itemBuilder: (context, int){
-                      return Container(
-                        height: 100,
-                        child: CardEvenement()
-                      );
+                    itemBuilder: (context, index){
+                     return CardEvenement();
                     },
+                  )
+                  : GridView.builder(
+                  gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 10
                   ),
+                  shrinkWrap: true,
+                  itemCount: 8,
+                  itemBuilder: (context, int){
+                    return Container(
+                      height: 100,
+                      child: CardEvenement()
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

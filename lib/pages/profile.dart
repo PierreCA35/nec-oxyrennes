@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_explorer_challenge/library/widgets/animation_hero/datas.dart';
 import 'package:new_explorer_challenge/library/widgets/animation_hero/hero_detail.dart';
@@ -60,6 +61,7 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
         ? new AppBar(
         backgroundColor: AppColors.blackLightColor,
@@ -106,39 +108,44 @@ class _ProfilPageState extends State<ProfilPage> {
           if(snapshot.connectionState == ConnectionState.waiting){
             return Center(child: CircularProgressIndicator(backgroundColor: AppColors.beigeColor,),);
           }
-          return SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    //Photo Profil
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0, bottom: 10.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        child: Center(
-                          child: ProfilPhoto(
-                            urlImage: widget.user.photoProfil,
-                            size: 40.0,
-                            onPressed: null,
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            child: SafeArea(
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: [
+                        //Photo Profil
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0, bottom: 10.0),
+                          child: Container(
+                            width: 100,
+                            height: 100,
+                            child: Center(
+                              child: ProfilPhoto(
+                                urlImage: widget.user.photoProfil,
+                                size: 40.0,
+                                onPressed: null,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        //Pseudo
+                        TextTitreBouton(
+                          "${widget.user.pseudo}",
+                          fontSize: 20.0,
+                        ),
+                      ],
                     ),
-                    //Pseudo
-                    TextTitreBouton(
-                      "${widget.user.pseudo}",
-                      fontSize: 20.0,
-                    ),
-                    //Carnet de Bord,
-                    Container(
-                      margin: EdgeInsets.only(top: 30.0),
-                      child: streamBuilder(),
-                    ),
-                  ],
-                ),
+                  ),
+                  //Carnet de Bord,
+                  Container(
+                    margin: EdgeInsets.only(top: 180.0),
+                    child: streamBuilder(),
+                  ),
+                ],
               ),
             ),
           );

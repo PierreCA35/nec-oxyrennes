@@ -108,9 +108,9 @@ class _HomeLoginState extends State<HomeLogin> {
           ResponsiveWidget.isSmallScreen(context)
               ? Align(
             alignment: Alignment.centerLeft,
-            child: boutonConnexion(270.0, context),
+            child: boutonConnexion(260.0, context),
           )
-              : Center(child: boutonConnexion(270.0, context),),
+              : Center(child: boutonConnexion(260.0, context),),
           //Text Inscription
           ResponsiveWidget.isSmallScreen(context)
               ? Container(
@@ -171,7 +171,7 @@ class _HomeLoginState extends State<HomeLogin> {
                   AppColors.blackLightColor
               ),
               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                  EdgeInsets.only(top: 25.0, bottom: 25.0, left: 10.0, right: 130.0)
+                  EdgeInsets.only(top: 25.0, bottom: 25.0)
               ),
             ),
             onPressed: () => Navigator.push(context, new MaterialPageRoute(builder: (context) => LoginSignUpPage())),
